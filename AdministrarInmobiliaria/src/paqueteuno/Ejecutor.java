@@ -214,11 +214,11 @@ public class Ejecutor {
         //Le envio un objeto propietario para el registro
         archivoPropi.establecerRegistro(propi);
         archivoPropi.establecerSalida();
-        //Cierro el archivo
+       
         archivoPropi.cerrarArchivo();
     }
 
-    //Ingreso Ubicaciones:
+    
     public static void ingresoUbicaciones() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese el nombre de su barrio:");
@@ -228,16 +228,16 @@ public class Ejecutor {
         System.out.println("Ingrese el numero de la casa");
         int numCasa = sc.nextInt();
         Ubicacion ubi = new Ubicacion(numCasa, nombreBarrio, refencia);
-        //Se escribe el archivo en un archivo ubicacion.txt
+      
         EscrituraArchivoUbicacion archivoUbi
                 = new EscrituraArchivoUbicacion("ubicacion.txt");
         archivoUbi.establecerRegistro(ubi);
         archivoUbi.establecerSalida();
-        //Cierro el archivo
+    
         archivoUbi.cerrarArchivo();
     }
 
-    //Ingreso ciudades:
+
     public static void ingresoCiudades() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese el nombre de su ciudad:");
@@ -245,12 +245,11 @@ public class Ejecutor {
         System.out.println("Ingrese el nombre de su provincia");
         String provincia = sc.nextLine();
         Ciudad city = new Ciudad(ciudad, provincia);
-        //Se escribe el archivo en un archivo ciudad.txt
+    
         EscrituraArchivoCiudad archivoCiu
                 = new EscrituraArchivoCiudad("ciudad.txt");
         archivoCiu.establecerRegistro(city);
         archivoCiu.establecerSalida();
-        //Cierro el archivo
         archivoCiu.cerrarArchivo();
     }
 
@@ -262,12 +261,12 @@ public class Ejecutor {
         String idEmpresa = sc.nextLine();
         Constructora constructora
                 = new Constructora(nombreConstructora, idEmpresa);
-        //Se escribe el archivo en un archivo constructora.txt
+       
+        
         EscrituraArchivoConstructora archivoCons
                 = new EscrituraArchivoConstructora("constructora.txt");
         archivoCons.establecerRegistro(constructora);
         archivoCons.establecerSalida();
-        //Cierro el archivo
         archivoCons.cerrarArchivo();
     }
 
@@ -275,29 +274,34 @@ public class Ejecutor {
             String nameCiudad, String constructoraID) {
         Scanner sc = new Scanner(System.in);
         //Declaro Araylists de objetos para guardar los objetos
-        //que se recuperaran del archivo txt
+      
         ArrayList<Propietario> propietarios;
         ArrayList<Ubicacion> ubicaciones;
-        ArrayList<Ciudad> citys;
+        ArrayList<Ciudad> ciudades;
         ArrayList<Constructora> constructoras;
-        //Ingresa los datos de algunos atributos que contiene casa
+        
+        
         System.out.println("Ingrese el precio por metro Cuadrado");
         double precioMetroCuadrado = sc.nextDouble();
         System.out.println("Ingrese el numero de metros cuadrados de la casa:");
         int numMetroCuadrado = sc.nextInt();
         System.out.println("Ingrese el numero de cuartos de la casa:");
         int numeroCuartos = sc.nextInt();
-        //Lee el archivo de propietario.txt
+      
         LecturaArchivoPropietario lecturPropietarios
                 = new LecturaArchivoPropietario("propietario.txt");
         lecturPropietarios.establecerListaPropietarios();
-        //recupera los objetos de propietarios.txt y los guarda en un arraylist
-        //llamado propietarios:
+        
+        
+        /*recupera los objetos de propietarios.txt y los guarda en un arraylist
+        llamado propietarios*/
+        
+        
         propietarios = lecturPropietarios.obtenerListaPropietarios();
         String nombrePropi = "";
         String apellidoPropi = "";
-        //Se recorre el arraylist de objetos buscando si un atributo de
-        //propietario Identificacion es igual al id que ingreso el usuario:
+       
+        
         for (int i = 0; i < propietarios.size(); i++) {
             if (propietarios.get(i).getIdentificacion().equals(idPropi)) {
                 nombrePropi = propietarios.get(i).getNombres();
@@ -306,13 +310,11 @@ public class Ejecutor {
         }
         Propietario objPropi = new Propietario(nombrePropi, apellidoPropi,
                 idPropi);
-        //Ubicacion
-        //Lee el archivo de ubicacion.txt
+        
         LecturaArchivoUbicacion lecturaUbicacion
                 = new LecturaArchivoUbicacion("ubicacion.txt");
         lecturaUbicacion.establecerListaUbicacion();
-        //recupera los objetos de ubicacion.txt y los guarda en un arraylist
-        //llamado ubicaciones:
+       
         ubicaciones = lecturaUbicacion.obtenerListaUbicacion();
         String nombreBarri = "";
         String referens = "";
@@ -324,18 +326,18 @@ public class Ejecutor {
             }
         }
         Ubicacion objUbicacion = new Ubicacion(numCasa, nombreBarri, referens);
-        //Ciudad
-        //Lee el archivo de ciudad.txt
-        LecturaArchivoCiudad lecturaCity
+     
+        
+        LecturaArchivoCiudad lecturaCiudad
                 = new LecturaArchivoCiudad("ciudad.txt");
-        lecturaCity.establecerListaCiudad();
+        lecturaCiudad.establecerListaCiudad();
         //recupera los objetos de ciudad.txt y los guarda en un arraylist
         //llamado citys:
-        citys = lecturaCity.obtenerListaCiudad();
+        ciudades = lecturaCiudad.obtenerListaCiudad();
         String nombreProvincia = "";
-        for (int i = 0; i < lecturaCity.obtenerListaCiudad().size(); i++) {
-            if ((citys.get(i).obtenerCiudad().toLowerCase()).equals(nameCiudad.toLowerCase())) {
-                nombreProvincia = citys.get(i).obtenerCiudad();
+        for (int i = 0; i < lecturaCiudad.obtenerListaCiudad().size(); i++) {
+            if ((ciudades.get(i).obtenerCiudad().toLowerCase()).equals(nameCiudad.toLowerCase())) {
+                nombreProvincia = ciudades.get(i).obtenerCiudad();
             }
         }
         Ciudad objCity = new Ciudad(nameCiudad, nombreProvincia);
@@ -350,35 +352,35 @@ public class Ejecutor {
         String nombreConstructora = "";
         for (int i = 0; i < lectruaConstructora.obtenerListaConstructora().
                 size(); i++) {
-            if (constructoras.get(i).obtenterIdEmpresarial().equals(constructoraID)) {
+            if (constructoras.get(i).obtenterId().equals(constructoraID)) {
                 nombreConstructora = constructoras.get(i).
                         obtenterNombreConstructora();
             }
         }
         Constructora objContructora
                 = new Constructora(nombreConstructora, constructoraID);
-        //creo un objeto casa y le envio los parametros correspondientes
+        //creo un objeto casa y le envio los parametros 
         Casa casa = new Casa(objPropi, precioMetroCuadrado, numMetroCuadrado,
                 objUbicacion, objCity, numeroCuartos, objContructora);
-        casa.setPrecioFinal();
-        //Se escribe el archivo en un archivo casa.txt
+        casa.establecerPrecioFinal();
+     
         EscrituraArchivoCasa archivoCasa = new EscrituraArchivoCasa("casa.txt");
         archivoCasa.establecerRegistro(casa);
         archivoCasa.establecerSalida();
         archivoCasa.cerrarArchivo();
     }
 
-    //Ingreso Departamentos
+
     public static void ingresoDepartamento(String idPropi, int numCasa,
             String nameCiudad, String constructoraID) {
         Scanner sc = new Scanner(System.in);
-        //Declaro Araylists de objetos para guardar los objetos
-        //que se recuperaran del archivo txt
+       
+        
         ArrayList<Propietario> propietarios;
         ArrayList<Ubicacion> ubicaciones;
         ArrayList<Ciudad> citys;
         ArrayList<Constructora> constructoras;
-        //Ingresa los datos de algunos atributos que contiene casa
+       
         System.out.println("Ingrese el precio por metro Cuadrado:");
         double precioMetroCuadrado = sc.nextDouble();
         System.out.println("Ingrese el numero de metros cuadrados del "
@@ -391,8 +393,9 @@ public class Ejecutor {
         String nameEdificio = sc.nextLine();
         System.out.println("Ingrese la dirección del edificio:");
         String ubicacionEdi = sc.nextLine();
-        //Propietarios
-        //Lee el archivo de propietario.txt
+ 
+        
+        
         LecturaArchivoPropietario lecturPropietarios
                 = new LecturaArchivoPropietario("propietario.txt");
         lecturPropietarios.establecerListaPropietarios();
@@ -416,15 +419,14 @@ public class Ejecutor {
         String nombreBarri = "";
         String referens = "";
         for (int i = 0; i < ubicaciones.size(); i++) {
-            int numC = ubicaciones.get(i).getNumCasa();
+            int numC = ubicaciones.get(i).obtenerNumCasa();
             if (numC == numCasa) {
-                nombreBarri = ubicaciones.get(i).getNombreBarrio();
-                referens = ubicaciones.get(i).getReferencia();
+                nombreBarri = ubicaciones.get(i).obtenerNombreBarrio();
+                referens = ubicaciones.get(i).obtenerReferencia();
             }
         }
         Ubicacion objUbicacion = new Ubicacion(numCasa, nombreBarri, referens);
-        //Ciudad
-        //Lee el archivo de ciudad.txt
+       
         LecturaArchivoCiudad lecturaCity
                 = new LecturaArchivoCiudad("ciudad.txt");
         lecturaCity.establecerListaCiudad();
@@ -436,8 +438,7 @@ public class Ejecutor {
             }
         }
         Ciudad objCity = new Ciudad(nameCiudad, nombreProvincia);
-        //Constructoras
-        //Lee el archivo de constructora.txt
+        
         LecturaArchivoConstructora lectruaConstructora
                 = new LecturaArchivoConstructora("constructora.txt");
         lectruaConstructora.establecerListaConstructora();
@@ -452,12 +453,12 @@ public class Ejecutor {
         }
         Constructora objContructora = new Constructora(nombreConstructora,
                 constructoraID);
-        //Departamento
+       
         Departamento depa = new Departamento(objPropi, precioMetroCuadrado,
                 numMetroCuadrado, cuotaMensual, objUbicacion, objCity,
                 nameEdificio, ubicacionEdi, objContructora);
-        depa.setPrecio();
-        depa.setCostoFinal();
+        depa.establecerPrecio();
+        depa.establecerCostoFinal();
         EscrituraArchivoDepartamento archivoDepa
                 = new EscrituraArchivoDepartamento("departamento.txt");
         archivoDepa.establecerRegistroDepartamento(depa);
@@ -507,15 +508,12 @@ public class Ejecutor {
         System.out.println(lecturaDepartamento);
     }
 
-    //En verificacion Principal se reciben los valores que son necesarios para 
-    //compararr si constan en el sistema, caso contrario se tendrian que registrar
+
     public static void verificacionPrincipal(String idPropi, int numCas,
             String nameCiu, String constructoraID) {
 
         Scanner sc = new Scanner(System.in);
-        //En caso de que cualquier verificacion retorne un valor de 0, significa
-        //que no esta registrado en el sisteme, por ende el programa llama al 
-        //metodo ingreso, con el objetivo que se registren en el sistema
+      
         System.out.println("Verificacion de Propietario=");
         if (verificacionPropietarios(idPropi) == 0) {
             ingresoPropietarios();
@@ -562,7 +560,7 @@ public class Ejecutor {
         lecturaUbicacion.establecerListaUbicacion();
         ubicaciones = lecturaUbicacion.obtenerListaUbicacion();
         for (int i = 0; i < ubicaciones.size(); i++) {
-            int numC = ubicaciones.get(i).getNumCasa();
+            int numC = ubicaciones.get(i).obtenerNumCasa();
             if (numC == numCasa) {
                 mensaje = "Su ubicacion si consta en nuestro sistema";
                 ingreso = 1;

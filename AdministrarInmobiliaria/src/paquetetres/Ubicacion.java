@@ -24,27 +24,27 @@ public class Ubicacion implements Serializable {
         this.referencia = referencia;
     }
 
-    public void setNombreBarrio(String nombreBarrio) {
+    public void establecerNombreBarrio(String nombreBarrio) {
         this.nombreBarrio = nombreBarrio;
     }
 
-    public void setReferencia(String referencia) {
+    public void establecerReferencia(String referencia) {
         this.referencia = referencia;
     }
 
-    public void setNumCasa(int numCasa) {
+    public void establecerNumCasa(int numCasa) {
         this.numCasa = numCasa;
     }
 
-    public String getNombreBarrio() {
+    public String obtenerNombreBarrio() {
         return nombreBarrio;
     }
 
-    public String getReferencia() {
+    public String obtenerReferencia() {
         return referencia;
     }
 
-    public int getNumCasa() {
+    public int obtenerNumCasa() {
         return numCasa;
     }
 

@@ -24,23 +24,22 @@ public class EscrituraArchivoPropietario {
     public EscrituraArchivoPropietario(String n) {
         nombreArchivo = n;
         establecerListaPropietarios();
-        // sacar la información del archivo, previo a volver 
-        // a trabajar con el mimso.
-        try // abre el archivo
+     
+        try 
         {
             salida = new ObjectOutputStream(
                     new FileOutputStream(nombreArchivo));
-            // proceso para ingresar nuevamente los valores del archivo
+        
             if (obtenerListaPropietarios().size() > 0) {
                 for (int i = 0; i < obtenerListaPropietarios().size(); i++) {
                     establecerRegistro(obtenerListaPropietarios().get(i));
                     establecerSalida();
                 }
             }
-        } // fin de try
+        } 
         catch (IOException ioException) {
             System.err.println("Error al abrir el archivo o la lista esta vacia.");
-        } // fin de catch
+        } 
     }
 
     public void establecerNombreArchivo(String n) {
@@ -53,7 +52,7 @@ public class EscrituraArchivoPropietario {
 
     public void establecerSalida() {
         try {
-            salida.writeObject(registro); // envía el registro como salida
+            salida.writeObject(registro); 
         } catch (IOException ex) {
             System.err.println("Error al escribir en el archivo.");
         }
@@ -74,22 +73,22 @@ public class EscrituraArchivoPropietario {
         return listaPropietarios;
     }
 
-    // agrega registros al archivo
+
     public ObjectOutputStream obtenerSalida() {
         return salida;
     }
 
     public void cerrarArchivo() {
-        try // cierra el archivo
+        try 
         {
             if (salida != null) {
                 salida.close();
             }
-        } // fin de try
+        } 
         catch (IOException ioException) {
             System.err.println("Error al cerrar el archivo.");
 
-        } // fin de catch
+        } 
     }
 
 }

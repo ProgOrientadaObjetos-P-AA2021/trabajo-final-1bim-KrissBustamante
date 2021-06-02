@@ -53,14 +53,14 @@ public class LecturaArchivoPropietario {
                     Propietario registro = (Propietario) entrada.readObject();
                     listaPropietarios.add(registro);
                 } catch (EOFException endOfFileException) {
-                    return; // se llegó al fin del archivo
+                    return; 
 
                 } catch (IOException ex) {
                     System.err.println("Error al leer el archivo: " + ex);
                 } catch (ClassNotFoundException ex) {
                     System.err.println("No se pudo crear el objeto: " + ex);
                 } catch (Exception ex) {
-                    // System.err.println("No hay datos en el archivo: " + ex);
+                  
                     break;
                 }
             }
@@ -96,17 +96,17 @@ public class LecturaArchivoPropietario {
     }
 
     public void cerrarArchivo() {
-        try // cierra el archivo y sale
+        try 
         {
             if (entrada != null) {
                 entrada.close();
             }
             System.exit(0);
-        } // fin de try
+        } 
         catch (IOException ioException) {
             System.err.println("Error al cerrar el archivo.");
             System.exit(1);
-        } // fin de catch
+        } 
     }
 
 }

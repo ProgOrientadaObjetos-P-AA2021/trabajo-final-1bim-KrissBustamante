@@ -26,15 +26,15 @@ public class LecturaArchivoCiudad {
         nombreArchivo = n;
         File f = new File(obtenerNombreArchivo());
         if (f.exists()) {
-            try // abre el archivo
+            try 
             {
                 entrada = new ObjectInputStream(
                         new FileInputStream(n));
-            } // fin de try
+            } 
             catch (IOException ioException) {
                 System.err.println("Error al abrir el archivo.");
 
-            } // fin de catch
+            } 
         }
     }
 
@@ -60,7 +60,7 @@ public class LecturaArchivoCiudad {
                 } catch (ClassNotFoundException ex) {
                     System.err.println("No se pudo crear el objeto: " + ex);
                 } catch (Exception ex) {
-                    // System.err.println("No hay datos en el archivo: " + ex);
+                    
                     break;
                 }
             }
@@ -94,17 +94,17 @@ public class LecturaArchivoCiudad {
     }
 
     public void cerrarArchivo() {
-        try // cierra el archivo y sale
+        try 
         {
             if (entrada != null) {
                 entrada.close();
             }
             System.exit(0);
-        } // fin de try
+        } 
         catch (IOException ioException) {
             System.err.println("Error al cerrar el archivo.");
             System.exit(1);
-        } // fin de catch
+        } 
     }
 
 }

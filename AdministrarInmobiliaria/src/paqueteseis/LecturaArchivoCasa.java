@@ -102,20 +102,20 @@ public class LecturaArchivoCasa {
                     + "\t> Precio por metros cuadrados: %.2f$\n"
                     + "\t> Número de metros cuadrados: %dm\n"
                     + "\t> Costo final: %.2f$\n\n", cadena, i + 1,
-                    c.getPropietario().getNombres(),
-                    c.getPropietario().getApellidos(),
-                    c.getPropietario().getIdentificacion(),
-                    c.getUbicacion().getNombreBarrio(),
-                    c.getUbicacion().getReferencia(),
-                    c.getUbicacion().getNumCasa(),
-                    c.getCiudad().obtenerCiudad(),
-                    c.getCiudad().obtenerNombreProvincia(),
-                    c.getConstructora().obtenerNombreConstructora(),
-                    c.getConstructora().obtenerIdEmpresarial(),
-                    c.getNumCuartos(),
-                    c.getPrecioMetroCuadrado(),
-                    c.getNumMetroCuadrado(),
-                    c.getPrecioFinal());
+                    c.obtenerPropietario().getNombres(),
+                    c.obtenerPropietario().getApellidos(),
+                    c.obtenerPropietario().getIdentificacion(),
+                    c.obtenerUbicacion().obtenerNombreBarrio(),
+                    c.obtenerUbicacion().obtenerReferencia(),
+                    c.obtenerUbicacion().getNumCasa(),
+                    c.obtenerCiudad().obtenerCiudad(),
+                    c.obtenerCiudad().obtenerNombreProvincia(),
+                    c.obtenerConstructora().obtenerNombreConstructora(),
+                    c.obtenerConstructora().obtenerIdEmpresarial(),
+                    c.obtenerNumCuartos(),
+                    c.obtenerPrecioMetroCuadrado(),
+                    c.obtenerNumMetroCuadrado(),
+                    c.obtenerPrecioFinal());
         }
         return cadena;
     }

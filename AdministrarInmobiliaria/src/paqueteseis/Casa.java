@@ -37,67 +37,67 @@ public class Casa implements Serializable {
         this.constructora = constructora;
     }
 
-    public void setPropietario(Propietario propietario) {
+    public void establecerPropietario(Propietario propietario) {
         this.propietario = propietario;
     }
 
-    public void setPrecioMetroCuadrado(double precioMetroCuadrado) {
+    public void establecerPrecioMetroCuadrado(double precioMetroCuadrado) {
         this.precioMetroCuadrado = precioMetroCuadrado;
     }
 
-    public void setNumMetroCuadrado(int numMetroCuadrado) {
+    public void establecerNumMetroCuadrado(int numMetroCuadrado) {
         this.numMetroCuadrado = numMetroCuadrado;
     }
 
-    public void setPrecioFinal() {
+    public void establecerPrecioFinal() {
         this.precioFinal = precioMetroCuadrado * numMetroCuadrado;
     }
 
-    public void setUbicacion(Ubicacion ubicacion) {
+    public void establecerUbicacion(Ubicacion ubicacion) {
         this.ubicacion = ubicacion;
     }
 
-    public void setCiudad(Ciudad ciudad) {
+    public void establecerCiudad(Ciudad ciudad) {
         this.ciudad = ciudad;
     }
 
-    public void setNumCuartos(int numCuartos) {
+    public void establecerNumCuartos(int numCuartos) {
         this.numCuartos = numCuartos;
     }
 
-    public void setConstructora(Constructora constructora) {
+    public void establecerConstructora(Constructora constructora) {
         this.constructora = constructora;
     }
 
-    public Propietario getPropietario() {
+    public Propietario obtenerPropietario() {
         return propietario;
     }
 
-    public double getPrecioMetroCuadrado() {
+    public double obtenerPrecioMetroCuadrado() {
         return precioMetroCuadrado;
     }
 
-    public int getNumMetroCuadrado() {
+    public int obtenerNumMetroCuadrado() {
         return numMetroCuadrado;
     }
 
-    public double getPrecioFinal() {
+    public double obtenerPrecioFinal() {
         return precioFinal;
     }
 
-    public Ubicacion getUbicacion() {
+    public Ubicacion obtenerUbicacion() {
         return ubicacion;
     }
 
-    public Ciudad getCiudad() {
+    public Ciudad obtenerCiudad() {
         return ciudad;
     }
 
-    public int getNumCuartos() {
+    public int obtenerNumCuartos() {
         return numCuartos;
     }
 
-    public Constructora getConstructora() {
+    public Constructora obtenerConstructora() {
         return constructora;
     }
 }

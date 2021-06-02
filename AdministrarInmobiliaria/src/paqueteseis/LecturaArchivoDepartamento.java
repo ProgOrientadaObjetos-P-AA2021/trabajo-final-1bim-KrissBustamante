@@ -101,22 +101,22 @@ public class LecturaArchivoDepartamento {
                     + "\t> Costo Final: %.2f$\n\n",
                     cadena,
                     i + 1,
-                    d.getPropietario().getNombres(),
-                    d.getPropietario().getApellidos(),
-                    d.getPropietario().getIdentificacion(),//
-                    d.getUbicacion().getNombreBarrio(),
-                    d.getUbicacion().getReferencia(),
-                    d.getUbicacion().getNumCasa(),//
-                    d.getCiudad().obtenerNombreCiudad(),
-                    d.getCiudad().obtenerNombreProvincia(),
-                    d.getConstructora().obtenerNombreConstructora(),
-                    d.getConstructora().obtenerIdEmpresarial(),
-                    d.getNombreEdificio(),
-                    d.getPrecioMetroCuadrado(),
-                    d.getNumMetroCuadrado(),
-                    d.getCuotaMensual(),
-                    d.getCostoFinal(),
-                    d.getPrecio());
+                    d.obtenerPropietario().getNombres(),
+                    d.obtenerPropietario().getApellidos(),
+                    d.obtenerPropietario().getIdentificacion(),//
+                    d.obtenerUbicacion().obtenerNombreBarrio(),
+                    d.obtenerUbicacion().obtenerReferencia(),
+                    d.obtenerUbicacion().obtenerNumCasa(),//
+                    d.obtenerCiudad().obtenerNombreCiudad(),
+                    d.obtenerCiudad().obtenerNombreProvincia(),
+                    d.obtenerConstructora().obtenerNombreConstructora(),
+                    d.obtenerConstructora().obtenerIdEmpresarial(),
+                    d.obtenertNombreEdificio(),
+                    d.obtenerPrecioMetroCuadrado(),
+                    d.obtenerNumMetroCuadrado(),
+                    d.obtenerCuotaMensual(),
+                    d.obtenerCostoFinal(),
+                    d.obtenerPrecio());
         }
         return cadena;
     }

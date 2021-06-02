@@ -53,14 +53,14 @@ public class LecturaArchivoUbicacion {
                     Ubicacion registro = (Ubicacion) entrada.readObject();
                     listaUbicacion.add(registro);
                 } catch (EOFException endOfFileException) {
-                    return; // se llegó al fin del archivo
+                    return; 
 
                 } catch (IOException ex) {
                     System.err.println("Error al leer el archivo: " + ex);
                 } catch (ClassNotFoundException ex) {
                     System.err.println("No se pudo crear el objeto: " + ex);
                 } catch (Exception ex) {
-                    // System.err.println("No hay datos en el archivo: " + ex);
+                   
                     break;
                 }
             }
@@ -86,8 +86,8 @@ public class LecturaArchivoUbicacion {
                     + "\t> Barrio: %s\n"
                     + "\t> Referencia: %s\n\n", cadena,
                     i + 1,
-                    p.getNombreBarrio(),
-                    p.getReferencia());
+                    p.obtenerNombreBarrio(),
+                    p.obtenerReferencia());
         }
         return cadena;
     }

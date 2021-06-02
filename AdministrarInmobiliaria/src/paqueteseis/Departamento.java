@@ -46,91 +46,91 @@ public class Departamento implements Serializable {
         this.constructora = constructora;
     }
 
-    public void setPropietario(Propietario propietario) {
+    public void establecerPropietario(Propietario propietario) {
         this.propietario = propietario;
     }
 
-    public void setPrecioMetroCuadrado(double precioMetroCuadrado) {
+    public void establecerPrecioMetroCuadrado(double precioMetroCuadrado) {
         this.precioMetroCuadrado = precioMetroCuadrado;
     }
 
-    public void setNumMetroCuadrado(double numMetroCuadrado) {
+    public void establecerNumMetroCuadrado(double numMetroCuadrado) {
         this.numMetroCuadrado = numMetroCuadrado;
     }
 
-    public void setCuotaMensual(double cuotaMensual) {
+    public void establecerCuotaMensual(double cuotaMensual) {
         this.cuotaMensual = cuotaMensual;
     }
 
-    public void setCostoFinal() {
+    public void establecerCostoFinal() {
         this.costoFinal = precio + (cuotaMensual * 12);
     }
 
-    public void setPrecio() {
+    public void establecerPrecio() {
         this.precio = (numMetroCuadrado * precioMetroCuadrado);
     }
 
-    public void setUbicacion(Ubicacion ubicacion) {
+    public void establecerUbicacion(Ubicacion ubicacion) {
         this.ubicacion = ubicacion;
     }
 
-    public void setCiudad(Ciudad ciudad) {
+    public void establecerCiudad(Ciudad ciudad) {
         this.ciudad = ciudad;
     }
 
-    public void setNombreEdificio(String nombreEdificio) {
+    public void establecerNombreEdificio(String nombreEdificio) {
         this.nombreEdificio = nombreEdificio;
     }
 
-    public void setUbicacionDepartamento(String ubicacionDepartamento) {
+    public void establecerUbicacionDepartamento(String ubicacionDepartamento) {
         this.ubicacionDepartamento = ubicacionDepartamento;
     }
 
-    public void setConstructora(Constructora constructora) {
+    public void establecerConstructora(Constructora constructora) {
         this.constructora = constructora;
     }
 
-    public Propietario getPropietario() {
+    public Propietario obtenerPropietario() {
         return propietario;
     }
 
-    public double getPrecioMetroCuadrado() {
+    public double obtenerPrecioMetroCuadrado() {
         return precioMetroCuadrado;
     }
 
-    public double getNumMetroCuadrado() {
+    public double obtenerNumMetroCuadrado() {
         return numMetroCuadrado;
     }
 
-    public double getCuotaMensual() {
+    public double obtenerCuotaMensual() {
         return cuotaMensual;
     }
 
-    public double getCostoFinal() {
+    public double obtenerCostoFinal() {
         return costoFinal;
     }
 
-    public double getPrecio() {
+    public double obtenerPrecio() {
         return precio;
     }
 
-    public Ubicacion getUbicacion() {
+    public Ubicacion obtenerUbicacion() {
         return ubicacion;
     }
 
-    public Ciudad getCiudad() {
+    public Ciudad obtenerCiudad() {
         return ciudad;
     }
 
-    public String getNombreEdificio() {
+    public String obtenerNombreEdificio() {
         return nombreEdificio;
     }
 
-    public String getUbicacionDepartamento() {
+    public String obtenerUbicacionDepartamento() {
         return ubicacionDepartamento;
     }
 
-    public Constructora getConstructora() {
+    public Constructora obtenerConstructora() {
         return constructora;
     }
 }
