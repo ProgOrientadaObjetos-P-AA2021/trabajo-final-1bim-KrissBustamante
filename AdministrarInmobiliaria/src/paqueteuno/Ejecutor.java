@@ -334,8 +334,8 @@ public class Ejecutor {
         citys = lecturaCity.obtenerListaCiudad();
         String nombreProvincia = "";
         for (int i = 0; i < lecturaCity.obtenerListaCiudad().size(); i++) {
-            if ((citys.get(i).getNombreCity().toLowerCase()).equals(nameCiudad.toLowerCase())) {
-                nombreProvincia = citys.get(i).getNombreCity();
+            if ((citys.get(i).obtenerCiudad().toLowerCase()).equals(nameCiudad.toLowerCase())) {
+                nombreProvincia = citys.get(i).obtenerCiudad();
             }
         }
         Ciudad objCity = new Ciudad(nameCiudad, nombreProvincia);
@@ -350,9 +350,9 @@ public class Ejecutor {
         String nombreConstructora = "";
         for (int i = 0; i < lectruaConstructora.obtenerListaConstructora().
                 size(); i++) {
-            if (constructoras.get(i).getIdEmpresarial().equals(constructoraID)) {
+            if (constructoras.get(i).obtenterIdEmpresarial().equals(constructoraID)) {
                 nombreConstructora = constructoras.get(i).
-                        getNombreConstructora();
+                        obtenterNombreConstructora();
             }
         }
         Constructora objContructora
@@ -431,8 +431,8 @@ public class Ejecutor {
         citys = lecturaCity.obtenerListaCiudad();
         String nombreProvincia = "";
         for (int i = 0; i < lecturaCity.obtenerListaCiudad().size(); i++) {
-            if (citys.get(i).getNombreCity().equals(nameCiudad)) {
-                nombreProvincia = citys.get(i).getNombreCity();
+            if (citys.get(i).obtenerNombreCiudad().equals(nameCiudad)) {
+                nombreProvincia = citys.get(i).obtenerNombreCiudad();
             }
         }
         Ciudad objCity = new Ciudad(nameCiudad, nombreProvincia);
@@ -445,9 +445,9 @@ public class Ejecutor {
         String nombreConstructora = "";
         for (int i = 0; i < lectruaConstructora.obtenerListaConstructora().
                 size(); i++) {
-            if (constructoras.get(i).getIdEmpresarial().equals(constructoraID)) {
+            if (constructoras.get(i).obtenerIdEmpresarial().equals(constructoraID)) {
                 nombreConstructora = constructoras.get(i).
-                        getNombreConstructora();
+                        obtenerNombreConstructora();
             }
         }
         Constructora objContructora = new Constructora(nombreConstructora,
@@ -516,20 +516,20 @@ public class Ejecutor {
         //En caso de que cualquier verificacion retorne un valor de 0, significa
         //que no esta registrado en el sisteme, por ende el programa llama al 
         //metodo ingreso, con el objetivo que se registren en el sistema
-        System.out.println("===========Verificacion de Propietario===========");
+        System.out.println("Verificacion de Propietario=");
         if (verificacionPropietarios(idPropi) == 0) {
             ingresoPropietarios();
         }
-        System.out.println("===========Verificacion de Ubicacion===========");
+        System.out.println("Verificacion de Ubicacion");
         if (verificacionUbicacion(numCas) == 0) {
             ingresoUbicaciones();
         }//level in the paper
         sc.nextLine();
-        System.out.println("===========Verificacion de Ciudad===========");
+        System.out.println("Verificacion de Ciudad");
         if (verificacionCiudad(nameCiu) == 0) {
             ingresoCiudades();
         }
-        System.out.println("===========Verificacion de Constructota==========");
+        System.out.println("Verificacion de Constructota");
         if (verificacionConstructora(constructoraID) == 0) {
             ingresoConstructoras();
         }
@@ -581,7 +581,7 @@ public class Ejecutor {
         lecturaCity.establecerListaCiudad();
         citys = lecturaCity.obtenerListaCiudad();
         for (int i = 0; i < lecturaCity.obtenerListaCiudad().size(); i++) {
-            if ((citys.get(i).getNombreCity().toLowerCase()).equals(nombreCiudad.toLowerCase())) {
+            if ((citys.get(i).obtenerCiudad().toLowerCase()).equals(nombreCiudad.toLowerCase())) {
                 mensaje = "Su ciudad si consta en nuestro sistema";
                 ingreso = 1;
             }
@@ -600,7 +600,7 @@ public class Ejecutor {
         constructoras = lectruaConstructora.obtenerListaConstructora();
         for (int i = 0; i < lectruaConstructora.obtenerListaConstructora().
                 size(); i++) {
-            if (constructoras.get(i).getIdEmpresarial().equals(constructoraID)) {
+            if (constructoras.get(i).obtenerIdEmpresarial().equals(constructoraID)) {
                 mensaje = "Su constructora si consta en nuestro sistema";
                 ingreso = 1;
             }

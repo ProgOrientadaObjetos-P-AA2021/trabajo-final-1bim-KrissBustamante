@@ -11,16 +11,16 @@ import java.io.Serializable;
  */
 public class Constructora implements Serializable {
 
-    private String Constructora;
+    private String constructora;
     private String id;
 
     public Constructora(String nombreConstructora, String idEmpresarial) {
-        this.Constructora = nombreConstructora;
+        this.constructora = nombreConstructora;
         this.id = idEmpresarial;
     }
 
     public void establecerNombreConstructora(String nombreConstructora) {
-        this.Constructora = nombreConstructora;
+        this.constructora = nombreConstructora;
     }
 
     public void establecerIdEmpresarial(String idEmpresarial) {
@@ -28,7 +28,7 @@ public class Constructora implements Serializable {
     }
 
     public String obtenerNombreConstructora() {
-        return Constructora;
+        return constructora;
     }
 
     public String obtenerIdEmpresarial() {

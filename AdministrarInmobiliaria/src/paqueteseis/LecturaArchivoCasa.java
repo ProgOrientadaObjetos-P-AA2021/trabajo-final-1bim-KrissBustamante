@@ -30,11 +30,11 @@ public class LecturaArchivoCasa {
             {
                 entrada = new ObjectInputStream(
                         new FileInputStream(n));
-            } // fin de try
+            } 
             catch (IOException ioException) {
                 System.err.println("Error al abrir el archivo o la lista esta vacia.");
 
-            } // fin de catch
+            } 
         }
     }
 
@@ -53,14 +53,14 @@ public class LecturaArchivoCasa {
                     Casa registro = (Casa) entrada.readObject();
                     listaCasas.add(registro);
                 } catch (EOFException endOfFileException) {
-                    return; // se llegó al fin del archivo
-
+                    return; 
+                    
                 } catch (IOException ex) {
                     System.err.println("Error al leer el archivo: " + ex);
                 } catch (ClassNotFoundException ex) {
                     System.err.println("No se pudo crear el objeto: " + ex);
                 } catch (Exception ex) {
-                    // System.err.println("No hay datos en el archivo: " + ex);
+                
                     break;
                 }
             }
@@ -108,10 +108,10 @@ public class LecturaArchivoCasa {
                     c.getUbicacion().getNombreBarrio(),
                     c.getUbicacion().getReferencia(),
                     c.getUbicacion().getNumCasa(),
-                    c.getCiudad().getNombreCity(),
-                    c.getCiudad().getNombreProvincia(),
-                    c.getConstructora().getNombreConstructora(),
-                    c.getConstructora().getIdEmpresarial(),
+                    c.getCiudad().obtenerCiudad(),
+                    c.getCiudad().obtenerNombreProvincia(),
+                    c.getConstructora().obtenerNombreConstructora(),
+                    c.getConstructora().obtenerIdEmpresarial(),
                     c.getNumCuartos(),
                     c.getPrecioMetroCuadrado(),
                     c.getNumMetroCuadrado(),
@@ -121,13 +121,13 @@ public class LecturaArchivoCasa {
     }
 
     public void cerrarArchivo() {
-        try // cierra el archivo y sale
+        try 
         {
             if (entrada != null) {
                 entrada.close();
             }
             System.exit(0);
-        } // fin de try
+        } 
         catch (IOException ioException) {
             System.err.println("Error al cerrar el archivo.");
             System.exit(1);
