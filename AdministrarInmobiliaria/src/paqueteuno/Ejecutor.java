@@ -193,7 +193,7 @@ public class Ejecutor {
         } while (salida);
     }
 
-    //Ingreso los datos del propietario
+   
     public static void ingresoPropietarios() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese sus nombres:");
@@ -323,8 +323,7 @@ public class Ejecutor {
         LecturaArchivoCiudad lecturaCiudad
                 = new LecturaArchivoCiudad("ciudad.txt");
         lecturaCiudad.establecerListaCiudad();
-        //recupera los objetos de ciudad.txt y los guarda en un arraylist
-        //llamado citys:
+        
         ciudades = lecturaCiudad.obtenerListaCiudad();
         String nombreProvincia = "";
         for (int i = 0; i < lecturaCiudad.obtenerListaCiudad().size(); i++) {
@@ -509,7 +508,7 @@ public class Ejecutor {
         System.out.println("Verificacion de Ubicacion");
         if (verificacionUbicacion(numCas) == 0) {
             ingresoUbicaciones();
-        }//level in the paper
+        }
         sc.nextLine();
         System.out.println("Verificacion de Ciudad");
         if (verificacionCiudad(nameCiu) == 0) {
