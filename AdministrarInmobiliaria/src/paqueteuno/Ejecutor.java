@@ -23,20 +23,19 @@ public class Ejecutor {
         int opcionIngreso;
         int ingresarMostrar;
         do {
-            System.out.println("==============Administración Inmobiliaria====="
-                    + "======");
+            System.out.println("Administración Inmobiliaria");
             System.out.printf("Eliga la opcion que desea:"
                     + "\n1.Ingresar registros\n2.Mostrar registros\n3.Verificar"
                     + " Datos\n4. salir\n> ");
             ingresarMostrar = sc.nextInt();
             if (ingresarMostrar == 1) {
                 System.out.println("Seleccione la opcion que desea:");
-                System.out.printf("1.Si desea ingresar un propietario\n"
-                        + "2.Si desea ingresar una ubicacion\n"
-                        + "3.Si desea ingresar una ciudad\n"
-                        + "4.Si desea ingresar una constructora\n"
-                        + "5.Si desea ingresar una casa\n"
-                        + "6.Si desea ingresar un departamento\n> ");
+                System.out.printf("1 Si desea ingresar un propietario\n"
+                        + "2 Si desea ingresar una ubicacion\n"
+                        + "3 Si desea ingresar una ciudad\n"
+                        + "4 Si desea ingresar una constructora\n"
+                        + "5 Si desea ingresar una casa\n"
+                        + "6 Si desea ingresar un departamento\n> ");
                 sc.nextLine();
                 opcionIngreso = sc.nextInt();
                 switch (opcionIngreso) {
@@ -70,9 +69,7 @@ public class Ejecutor {
                         System.out.println("Ingres ID de la empresa de la "
                                 + "constructora:");
                         String constructoraID = sc.nextLine();
-                        //Verificacion principal es para que verifique si sus 
-                        //datos estan ingresados en el sistema, caso contrario 
-                        //el programa hara que ingrese la informacion faltante
+                       
                         verificacionPrincipal(idPropi, numCasa, nombreCiudad,
                                 constructoraID);
                         ingresoCasas(idPropi, numCasa, nombreCiudad,
@@ -96,9 +93,7 @@ public class Ejecutor {
                         System.out.println("Ingres el ID de la empresa "
                                 + "constructora:");
                         String idCostructoraDepa = sc.nextLine();
-                        //Verificacion principal es para que verifique si sus 
-                        //datos estan ingresados en el sistema, caso contrario 
-                        //el programa hara que ingrese la informacion faltante
+               
                         verificacionPrincipal(idPropiDepa, numDepa,
                                 nombreCiudadDepa, idCostructoraDepa);
                         ingresoDepartamento(idPropiDepa, numDepa,
@@ -208,10 +203,10 @@ public class Ejecutor {
         System.out.println("Ingrese su identificacion");
         String id = sc.nextLine();
         Propietario propi = new Propietario(nombres, apellidos, id);
-        //Se escribe el archivo en un archivo propietario.txt
+
         EscrituraArchivoPropietario archivoPropi
                 = new EscrituraArchivoPropietario("propietario.txt");
-        //Le envio un objeto propietario para el registro
+  
         archivoPropi.establecerRegistro(propi);
         archivoPropi.establecerSalida();
        
@@ -292,10 +287,7 @@ public class Ejecutor {
                 = new LecturaArchivoPropietario("propietario.txt");
         lecturPropietarios.establecerListaPropietarios();
         
-        
-        /*recupera los objetos de propietarios.txt y los guarda en un arraylist
-        llamado propietarios*/
-        
+       
         
         propietarios = lecturPropietarios.obtenerListaPropietarios();
         String nombrePropi = "";
@@ -319,10 +311,10 @@ public class Ejecutor {
         String nombreBarri = "";
         String referens = "";
         for (int i = 0; i < ubicaciones.size(); i++) {
-            int numC = ubicaciones.get(i).getNumCasa();
+            int numC = ubicaciones.get(i).obtenerNumCasa();
             if (numC == numCasa) {
-                nombreBarri = ubicaciones.get(i).getNombreBarrio();
-                referens = ubicaciones.get(i).getReferencia();
+                nombreBarri = ubicaciones.get(i).obtenerNombreBarrio();
+                referens = ubicaciones.get(i).obtenerReferencia();
             }
         }
         Ubicacion objUbicacion = new Ubicacion(numCasa, nombreBarri, referens);
@@ -336,30 +328,27 @@ public class Ejecutor {
         ciudades = lecturaCiudad.obtenerListaCiudad();
         String nombreProvincia = "";
         for (int i = 0; i < lecturaCiudad.obtenerListaCiudad().size(); i++) {
-            if ((ciudades.get(i).obtenerCiudad().toLowerCase()).equals(nameCiudad.toLowerCase())) {
-                nombreProvincia = ciudades.get(i).obtenerCiudad();
+            if ((ciudades.get(i).obtenerNombreCiudad().toLowerCase()).equals(nameCiudad.toLowerCase())) {
+                nombreProvincia = ciudades.get(i).obtenerNombreCiudad();
             }
         }
         Ciudad objCity = new Ciudad(nameCiudad, nombreProvincia);
-        //Constructoras
-        //Lee el archivo de constructora.txt
+       
         LecturaArchivoConstructora lectruaConstructora
                 = new LecturaArchivoConstructora("constructora.txt");
         lectruaConstructora.establecerListaConstructora();
-        //recupera los objetos de constructora.txt y los guarda en un arraylist
-        //llamado constructoras:
+    
         constructoras = lectruaConstructora.obtenerListaConstructora();
         String nombreConstructora = "";
         for (int i = 0; i < lectruaConstructora.obtenerListaConstructora().
                 size(); i++) {
-            if (constructoras.get(i).obtenterId().equals(constructoraID)) {
-                nombreConstructora = constructoras.get(i).
-                        obtenterNombreConstructora();
+            if (constructoras.get(i).obtenerIdEmpresarial().equals(constructoraID)) {
+                nombreConstructora = constructoras.get(i).obtenerNombreConstructora();
             }
         }
         Constructora objContructora
                 = new Constructora(nombreConstructora, constructoraID);
-        //creo un objeto casa y le envio los parametros 
+     
         Casa casa = new Casa(objPropi, precioMetroCuadrado, numMetroCuadrado,
                 objUbicacion, objCity, numeroCuartos, objContructora);
         casa.establecerPrecioFinal();
@@ -410,8 +399,7 @@ public class Ejecutor {
         }
         Propietario objPropi = new Propietario(nombrePropi, apellidoPropi,
                 idPropi);
-        //Ubicacion
-        //Lee el archivo de ubicacion.txt
+   
         LecturaArchivoUbicacion lecturaUbicacion
                 = new LecturaArchivoUbicacion("ubicacion.txt");
         lecturaUbicacion.establecerListaUbicacion();
@@ -572,14 +560,14 @@ public class Ejecutor {
 
     public static int verificacionCiudad(String nombreCiudad) {
         String mensaje = "Su ciudad no consta en nuestro sistema";
-        ArrayList<Ciudad> citys;
+        ArrayList<Ciudad> ciudad;
         int ingreso = 0;
         LecturaArchivoCiudad lecturaCity
                 = new LecturaArchivoCiudad("ciudad.txt");
         lecturaCity.establecerListaCiudad();
-        citys = lecturaCity.obtenerListaCiudad();
+        ciudad = lecturaCity.obtenerListaCiudad();
         for (int i = 0; i < lecturaCity.obtenerListaCiudad().size(); i++) {
-            if ((citys.get(i).obtenerCiudad().toLowerCase()).equals(nombreCiudad.toLowerCase())) {
+            if ((ciudad.get(i).obtenerNombreCiudad().toLowerCase()).equals(nombreCiudad.toLowerCase())) {
                 mensaje = "Su ciudad si consta en nuestro sistema";
                 ingreso = 1;
             }

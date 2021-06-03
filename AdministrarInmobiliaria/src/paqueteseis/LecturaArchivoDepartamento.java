@@ -111,7 +111,7 @@ public class LecturaArchivoDepartamento {
                     d.obtenerCiudad().obtenerNombreProvincia(),
                     d.obtenerConstructora().obtenerNombreConstructora(),
                     d.obtenerConstructora().obtenerIdEmpresarial(),
-                    d.obtenertNombreEdificio(),
+                    d.obtenerNombreEdificio(),
                     d.obtenerPrecioMetroCuadrado(),
                     d.obtenerNumMetroCuadrado(),
                     d.obtenerCuotaMensual(),
